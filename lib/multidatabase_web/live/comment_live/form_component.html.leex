@@ -1,0 +1,14 @@
+<h2><%= @title %></h2>
+
+<%= f = form_for @changeset, "#",
+  id: "comment-form",
+  phx_target: @myself,
+  phx_change: "validate",
+  phx_submit: "save" %>
+
+  <%= label f, :comment %>
+  <%= text_input f, :comment %>
+  <%= error_tag f, :comment %>
+
+  <%= submit "Save", phx_disable_with: "Saving..." %>
+</form>
